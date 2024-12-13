@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+body {
+    background-color: #cbd3d6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    background-color: #007BFF; 
+}
+
+.menu-title {
+    color: #FFFFFF; 
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+.add-product-container {
+    width: 100%;
+    max-width: 1200px; 
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.add-product-icon {
+    width: 40px;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px;
+}
+
+.card {
+    margin: 10px;
+    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: #fff;
+    width: calc(25% - 20px); 
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.card__img {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.card__info {
+    z-index: 2;
+    background-color: #fff;
+    padding: 16px 24px 24px;
+}
+
+.card__icons {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.card:hover .card__icons {
+    display: flex;
+}
+
+.card__like, .card__clock {
+    width: 24px;
+    cursor: pointer;
+}
+
+.card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.card__category {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #868686;
+}
+
+.card__info-hover {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.card:hover .card__info-hover {
+    display: flex;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+
+#addProductForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+#addProductForm label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#addProductForm input[type="text"],
+#addProductForm input[type="number"],
+#addProductForm input[type="date"],
+#addProductForm input[type="url"],
+#addProductForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+#addProductForm textarea {
+    min-height: 80px;
+}
+
+
+#addProductForm button[type="button"] {
+    background-color: #2883a7;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#addProductForm button[type="button"]:hover {
+    background-color: #1e6f8d; 
+}
+
+.confirm-button,
+.cancel-button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.confirm-button {
+    background-color: #28a745; 
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #218838; 
+    transform: scale(1.05); 
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #c82333; 
+    transform: scale(1.05); 
+}
+
+
+#editProductForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#editProductForm label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#editProductForm input[type="text"],
+#editProductForm input[type="number"],
+#editProductForm input[type="date"],
+#editProductForm input[type="url"],
+#editProductForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+
+#editProductForm textarea {
+    min-height: 80px;
+}
+
+
+.salvar {
+    background-color: #2883a7; 
+    color: white; 
+    padding: 12px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.salvar:hover {
+    background-color: #1e6f8d; 
+    transform: scale(1.05); 
+}
